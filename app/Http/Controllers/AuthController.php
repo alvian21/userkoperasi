@@ -44,10 +44,11 @@ class AuthController extends Controller
         if ($validator->fails()) {
             return redirect()->back()->withErrors($validator->errors());
         } else {
-
+            $kode =  $request->get('kode_nfc');
 
             $user = Traktifasi::where('NoEkop', $request->get('kode_nfc'))->where('Status', 'aktif')->first();
             if ($user) {
+           
                 //cek password
                 $anggota = Msanggota::where("UserPassword", $request->get('password'))->where('Kode', $user->Kode)->first();
 
@@ -57,9 +58,11 @@ class AuthController extends Controller
                     session(['kode_nfc' => $request->get('kode_nfc')]);
                     session()->flash('info', 'Selamat Datang  !');
                     return redirect()->route('dashboard.index');
+                }else{
+                    return redirect('/login?id=' . $kode)->withErrors("wrong kode nfc or password");
                 }
             } else {
-                return redirect()->back()->withErrors("wrong kode nfc or password");
+                return redirect('/login?id=' . $kode)->withErrors("wrong kode nfc or password");
             }
         }
     }
