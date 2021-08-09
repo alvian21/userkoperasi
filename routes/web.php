@@ -16,7 +16,21 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@login')->name('login');
 
+Route::resource('card', 'CardController');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('dashboard', 'DashboardController');
-    Route::post('/logout','AuthController@logout')->name('logout');
+    Route::group(['prefix' => 'saldo', 'as' => 'saldo.', 'namespace' => 'Saldo'], function () {
+        Route::resource('hutang', 'SaldoHutangController');
+        Route::resource('simpanan', 'SaldoSimpananController');
+        Route::resource('ekop', 'SaldoEkopController');
+    });
+
+    Route::group(['prefix' => 'total_belanja', 'as' => 'total_belanja.', 'namespace' => 'TotalBelanja'], function () {
+        Route::resource('kredit', 'KreditController');
+        Route::resource('tunai', 'TunaiController');
+        Route::resource('nontunai', 'EkopController');
+    });
+
+    Route::post('/logout', 'AuthController@logout')->name('logout');
 });

@@ -59,98 +59,118 @@
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-primary">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="row text-dark" style="margin-top: 38px">
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
+                <a href="{{route('total_belanja.kredit.index')}}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
+                        <div class="row text-dark" style="margin-top: 38px">
+                            <div class="col-md-6">
+                                <h5>Total Belanja Kredit</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-right">@rupiah($kredit)</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+
             </div>
             <div class="col-md-6">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-primary">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <div class="row text-dark" style="margin-top: 38px">
-                        <div class="col-md-6">
-                            <h4>Saldo Ekop</h4>
+                <a href="{{route('saldo.ekop.index')}}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-wallet"></i>
                         </div>
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-primary">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="row text-dark" style="margin-top: 38px">
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
+                        <div class="row text-dark" style="margin-top: 38px">
+                            <div class="col-md-6">
+                                <h5>Saldo Ekop</h5>
+                            </div>
+                            <div class="col-md-6">
+                                @if ($ekop < 0) <h5 class="text-danger text-right">@rupiah($ekop)</h5>
+                                    @else
+                                    <h5 class="text-right">@rupiah($ekop)</h5>
+                                    @endif
+
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-primary">
-                        <i class="fas fa-archive"></i>
-                    </div>
-                    <div class="row text-dark" style="margin-top: 38px">
-                        <div class="col-md-6">
-                            <h4>Saldo Ekop</h4>
-                        </div>
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
-                        </div>
-                    </div>
-                </div>
+                </a>
+
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-primary">
-                        <i class="fas fa-shopping-cart"></i>
-                    </div>
-                    <div class="row text-dark" style="margin-top: 38px">
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
+                <a href="{{route('total_belanja.nontunai.index')}}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
+                        <div class="row text-dark" style="margin-top: 38px">
+                            <div class="col-md-6">
+                                <h5>Total Belanja Non Tunai</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-right">@rupiah($nontunai)</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
             <div class="col-md-6">
-                <div class="card card-statistic-1">
-                    <div class="card-icon bg-primary">
-                        <i class="fas fa-wallet"></i>
-                    </div>
-                    <div class="row text-dark" style="margin-top: 38px">
-                        <div class="col-md-6">
-                            <h4>Saldo Ekop</h4>
+                <a href="{{route('saldo.simpanan.index')}}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-archive"></i>
                         </div>
-                        <div class="col-md-6">
-                            <h4>Total Belanja Kredit</h4>
+                        <div class="row text-dark" style="margin-top: 38px">
+                            <div class="col-md-6">
+                                <h5>Saldo Simpanan</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-right">@rupiah($simpanan)</h5>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <a href="{{route('total_belanja.tunai.index')}}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="row text-dark" style="margin-top: 38px">
+                            <div class="col-md-6">
+                                <h5>Total Belanja Tunai</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-right">@rupiah($tunai)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+            <div class="col-md-6">
+                <a href="{{route('saldo.hutang.index')}}">
+                    <div class="card card-statistic-1">
+                        <div class="card-icon bg-primary">
+                            <i class="fas fa-wallet"></i>
+                        </div>
+                        <div class="row text-dark" style="margin-top: 38px">
+                            <div class="col-md-6">
+                                <h5>Saldo Hutang</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-right">@rupiah($hutang)</h5>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
             </div>
         </div>
     </div>

@@ -23,23 +23,13 @@
     <div class="card-body">
         <form method="POST" action="{{route("login")}}">
             @csrf
-            <div class="form-group">
-                <label for="kode_nfc">Kode NFC</label>
-                <input id="text" type="text" value="{{ old('kode_nfc') }}" required class="form-control" name="kode_nfc"
-                    tabindex="1" autofocus>
-            </div>
-
+            <input type="hidden" name="kode_nfc" value="{{$noekop}}">
             <div class="form-group">
                 <label for="password">Kata Sandi</label>
                 <input id="password" type="password" class="form-control" required name="password" tabindex="2">
             </div>
 
-            <div class="form-group">
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" name="remember" class="custom-control-input" tabindex="3" id="remember-me">
-                    <label class="custom-control-label" for="remember-me">Ingat Saya?</label>
-                </div>
-            </div>
+
 
             <div class="form-group">
                 <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
