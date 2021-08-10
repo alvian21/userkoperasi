@@ -16,7 +16,7 @@ class EkopController extends Controller
     public function index()
     {
         $kode = auth()->user()->Kode;
-        $cek = DB::select('call CEKSALDOTOTALBELANJAKEKOP_DETAIL(?)', [
+        $cek = DB::select('call CEKSALDOTOTALBELANJAEKOP_DETAIL(?)', [
             $kode
         ]);
 
