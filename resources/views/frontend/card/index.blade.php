@@ -72,7 +72,7 @@
         .btn-xl {
 
             border-radius: 10px;
-            width: 480px; //Specify your width here
+            width: 200px; //Specify your width here
         }
     </style>
 </head>
@@ -93,8 +93,11 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-6 text-center">
                                 <a href="{{url('/login?id='.$noekop)}}" class="btn btn-primary btn-xl">Login</a>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <a href="#" class="btn btn-primary btn-xl closebtn">Close</a>
                             </div>
                         </div>
                     </div>
@@ -119,6 +122,15 @@
     <!-- Template JS File -->
     <script src="{{ asset('assets/js/scripts.js') }}"></script>
     <script src="{{ asset('assets/js/custom.js') }}"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.closebtn').on('click',function () {
+                var win = window.open("about:blank", "_self");
+                win.close();
+             })
+         })
+    </script>
 </body>
 
 </html>

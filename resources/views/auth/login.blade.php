@@ -32,9 +32,19 @@
 
 
             <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                    Masuk
-                </button>
+                <div class="row">
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
+                            Masuk
+                        </button>
+                    </div>
+                    <div class="col-md-6">
+
+                            <a href="#" class="btn btn-primary btn-lg closebtn btn-block">Close</a>
+
+                    </div>
+                </div>
+
             </div>
         </form>
     </div>

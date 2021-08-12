@@ -19,7 +19,7 @@
         <div class="dropdown-menu dropdown-menu-right">
             <a href="#" class="dropdown-item has-icon text-danger"
                 onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                <i class="fas fa-sign-out-alt"></i> Keluar
+                <i class="fas fa-sign-out-alt"></i> Logout
             </a>
             <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
                 @csrf
