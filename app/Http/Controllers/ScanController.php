@@ -3,38 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Msanggota;
+use Illuminate\Support\Facades\Validator;
 use App\Traktifasi;
 
-class CardController extends Controller
+class ScanController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Request $request)
+    public function index()
     {
-
-        if ($request->has('id')) {
-            $id = strval($request->get('id'));
-            $traktifasi = Traktifasi::where('NoEkop', $id)->first();
-            if ($traktifasi) {
-                $msanggota = Msanggota::where('Kode', $traktifasi->Kode)->first();
-                return view("frontend.card.index", ['anggota' => $msanggota, 'noekop' => $id]);
-            } else {
-                $data['title'] = '404';
-                $data['name'] = 'Your card is not registered';
-                return response()
-                ->view('errors.404',['data'=>$data]);
-
-            }
-        } else {
-            $data['title'] = '404';
-            $data['name'] = 'Your card is not registered';
-            return response()
-            ->view('errors.404',['data'=>$data]);
-        }
+        return view("frontend.scan.index");
     }
 
     /**
@@ -55,7 +36,20 @@ class CardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'card' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator->errors());
+        } else {
+            $cek = Traktifasi::where('NoEkop', $request->get('card'))->first();
+            if ($cek) {
+                return redirect()->action('CardController@index', ['id' => $request->get('card')]);
+            } else {
+                return redirect()->back()->withErrors('Your card is not registered');
+            }
+        }
     }
 
     /**

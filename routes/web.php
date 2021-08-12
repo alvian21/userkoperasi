@@ -17,6 +17,7 @@ Route::get('/login', 'AuthController@getLogin');
 Route::post('/login', 'AuthController@login')->name('login');
 
 Route::resource('card', 'CardController');
+Route::resource('scan', 'ScanController');
 
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('dashboard', 'DashboardController');
