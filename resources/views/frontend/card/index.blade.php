@@ -97,7 +97,7 @@
                                 <a href="{{url('/login?id='.$noekop)}}" class="btn btn-primary btn-xl">Login</a>
                             </div>
                             <div class="col-md-6 text-center">
-                                <a href="#" class="btn btn-primary btn-xl closebtn">Close</a>
+                                <a href="{{route('scan.index')}}" class="btn btn-primary btn-xl">Close</a>
                             </div>
                         </div>
                     </div>

@@ -30,7 +30,7 @@
             <input type="hidden" name="kode_nfc" >
             <div class="form-group">
                 <label for="text">Card</label>
-                <input id="text" type="text" class="form-control" required name="card" tabindex="2">
+                <input id="scan" type="text" class="form-control" required name="card" tabindex="2">
             </div>
 
 
