@@ -45,6 +45,7 @@ class ScanController extends Controller
         } else {
             $cek = Traktifasi::where('NoEkop', $request->get('card'))->first();
             if ($cek) {
+                session(['status' => 'komputer']);
                 return redirect()->action('CardController@index', ['id' => $request->get('card')]);
             } else {
                 return redirect()->back()->withErrors('Your card is not registered');

@@ -48,7 +48,7 @@ class AuthController extends Controller
 
             $user = Traktifasi::where('NoEkop', $request->get('kode_nfc'))->where('Status', 'aktif')->first();
             if ($user) {
-           
+
                 //cek password
                 $anggota = Msanggota::where("UserPassword", $request->get('password'))->where('Kode', $user->Kode)->first();
 
@@ -58,7 +58,7 @@ class AuthController extends Controller
                     session(['kode_nfc' => $request->get('kode_nfc')]);
                     session()->flash('info', 'Selamat Datang  !');
                     return redirect()->route('dashboard.index');
-                }else{
+                } else {
                     return redirect('/login?id=' . $kode)->withErrors("wrong kode nfc or password");
                 }
             } else {
@@ -70,10 +70,15 @@ class AuthController extends Controller
     public function logout(Request $request)
     {
         $kode = session('kode_nfc');
+        $status = session('status');
         Auth::guard('web')->logout();
         Session::flush();
+        if ($status == 'komputer') {
+            session(['status' => 'komputer']);
+        } else {
+            session(['status' => 'hp']);
+        }
 
-        return redirect('/login?id=' . $kode)
-            ->with('alert-info', 'Anda telah keluar, Sampai ketemu lagi!');
+        return  response()->json(['status' => $status]);
     }
 }

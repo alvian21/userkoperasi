@@ -21,19 +21,22 @@ class CardController extends Controller
             $traktifasi = Traktifasi::where('NoEkop', $id)->first();
             if ($traktifasi) {
                 $msanggota = Msanggota::where('Kode', $traktifasi->Kode)->first();
+
+                if (!session()->has('status')) {
+                    session(['status' => 'hp']);
+                }
                 return view("frontend.card.index", ['anggota' => $msanggota, 'noekop' => $id]);
             } else {
                 $data['title'] = '404';
                 $data['name'] = 'Your card is not registered';
                 return response()
-                ->view('errors.404',['data'=>$data]);
-
+                    ->view('errors.404', ['data' => $data]);
             }
         } else {
             $data['title'] = '404';
             $data['name'] = 'Your card is not registered';
             return response()
-            ->view('errors.404',['data'=>$data]);
+                ->view('errors.404', ['data' => $data]);
         }
     }
 

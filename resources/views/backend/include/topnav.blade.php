@@ -17,13 +17,10 @@
             <div class="d-sm-none d-lg-inline-block">Hi, </div>
         </a>
         <div class="dropdown-menu dropdown-menu-right">
-            <a href="#" class="dropdown-item has-icon text-danger"
-                onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a href="#" class="dropdown-item has-icon text-danger logout">
                 <i class="fas fa-sign-out-alt"></i> Logout
             </a>
-            <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
-                @csrf
-            </form>
+
         </div>
     </li>
 </ul>

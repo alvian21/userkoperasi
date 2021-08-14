@@ -14,12 +14,9 @@
         </li>
 
         <li>
-            <a class="nav-link" href="#"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+            <a class="nav-link logout" href="#"  >
                 <i class="fas fa-sign-out-alt"></i> <span>Logout</span>
             </a>
-            <form id="logout-form" action="{{route('logout')}}" method="POST" style="display: none;">
-                @csrf
-            </form>
         </li>
     </ul>
 </aside>

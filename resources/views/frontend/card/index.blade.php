@@ -97,7 +97,17 @@
                                 <a href="{{url('/login?id='.$noekop)}}" class="btn btn-primary btn-xl">Login</a>
                             </div>
                             <div class="col-md-6 text-center">
+                                @if (session()->has('status'))
+                                @if (session('status') == 'komputer')
                                 <a href="{{route('scan.index')}}" class="btn btn-primary btn-xl">Close</a>
+                                @elseif (session('status') == 'hp')
+                                 <a href="#" class="btn btn-primary btn-xl closebtn">Close</a>
+                                @endif
+                                @else
+                                <a href="#" class="btn btn-primary closebtn btn-xl">Close</a>
+                                @endif
+
+
                             </div>
                         </div>
                     </div>
@@ -126,8 +136,7 @@
     <script>
         $(document).ready(function () {
             $('.closebtn').on('click',function () {
-                var win = window.open("about:blank", "_self");
-                win.close();
+                window.close();
              })
          })
     </script>

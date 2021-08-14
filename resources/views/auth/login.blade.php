@@ -15,8 +15,7 @@
 </div>
 @endif
 <div class="login-brand">
-    <img src="{{ asset('assets/img/logo.png') }}" alt="logo" width="100"
-        class="shadow-light rounded-circle">
+    <img src="{{ asset('assets/img/logo.png') }}" alt="logo" width="100" class="shadow-light rounded-circle">
 </div>
 <div class="card card-primary">
     <div class="card-header">
@@ -42,8 +41,16 @@
                         </button>
                     </div>
                     <div class="col-md-6">
+                        @if (session()->has('status'))
+                        @if (session('status') == 'komputer')
+                        <a href="{{route('scan.index')}}" class="btn btn-primary btn-lg btn-block">Close</a>
+                        @elseif(session()->has('status') == 'hp')
+                        <a href="#" class="btn btn-primary btn-lg closebtn btn-block">Close</a>
+                        @endif
+                        @else
+                        <a href="#" class="btn btn-primary btn-lg closebtn btn-block">Close</a>
+                        @endif
 
-                            <a href="#" class="btn btn-primary btn-lg closebtn btn-block">Close</a>
 
                     </div>
                 </div>

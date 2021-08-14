@@ -60,6 +60,7 @@
              })
 
              $('#scan').focus()
+             $('#password').focus()
          })
     </script>
 </body>
