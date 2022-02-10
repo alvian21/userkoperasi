@@ -32,10 +32,12 @@
                                 </thead>
                                 <tbody>
                                     @forelse ($tunai as $item)
-                                    <td>{{$item->Nomor}}</td>
-                                    <td>@rupiah($item->Nilai)</td>
-                                    <td>{{$item->LastUpdate}}</td>
-                                    <td>{{$item->Transaksi}}</td>
+                                    <tr>
+                                            <td>{{$item->Nomor}}</td>
+                                            <td>@rupiah($item->Nilai)</td>
+                                            <td>{{$item->LastUpdate}}</td>
+                                            <td>{{$item->Transaksi}}</td>
+                                    </tr>
                                     @empty
 
                                     @endforelse

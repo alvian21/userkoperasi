@@ -32,10 +32,12 @@
                                 </thead>
                                 <tbody>
                                     @forelse ($kredit as $item)
-                                    <td>{{$item->Nomor}}</td>
+                                   <tr>
+                                        <td>{{$item->Nomor}}</td>
                                     <td>@rupiah($item->Nilai)</td>
                                     <td>{{$item->LastUpdate}}</td>
                                     <td>{{$item->Transaksi}}</td>
+                                   </tr>
                                     @empty
 
                                     @endforelse
